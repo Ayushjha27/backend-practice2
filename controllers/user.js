@@ -78,6 +78,16 @@ export const login = async (req,res) => {
     }
 }
 
+export const logout = async (_,res) =>{
+    try {
+        return res.status(200).cookie("token","",{maxAge:0}).json({
+            success:true,
+            message:"User logout successfully .",
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 //brcrypt :-- A library to help you hash passwords.
 //40 min
